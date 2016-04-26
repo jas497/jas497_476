@@ -3,6 +3,7 @@
   <!-- Reference: http://gazebosim.org/tutorials?tut=model_population&cat=build_world -->
   <!-- Reference: http://gazebosim.org/tutorials?tut=plugins_model&cat=write_plugin   -->
   <world name="default">
+	<!-- These do exactly what you think they do. -->
 	<include>
       <uri>model://ground_plane</uri>
     </include>
@@ -10,9 +11,12 @@
       <uri>model://sun</uri>
     </include>
 
+	<!-- Need a model to which to apply our plugin.  For reference, world
+	     plugins go under the <world/> tag, and so on. -->
 	<model name="box">
       <pose>0 0 0.5 0 0 0</pose>
       <link name="link">
+		<!-- Tell physics engine where box is. -->
         <collision name="collision">
           <geometry>
             <box>
@@ -20,7 +24,7 @@
             </box>
           </geometry>
         </collision>
-
+		<!-- Tell GUI where box is. -->
         <visual name="visual">
           <geometry>
             <box>
@@ -29,7 +33,7 @@
           </geometry>
         </visual>
       </link>
-
+	  <!-- Finally, our plugin! -->
       <plugin name="jasGazeboGripper" filename="libjasGazeboGripper.so"/>
     </model>        
   </world>

@@ -1,9 +1,9 @@
 # Final 476 project for jas497, James Starkman
 
 The goal of this 476 project is to explain, in no uncertain terms, how
-a Gazebo plugin is written.  It is meant to be suitable for reading by
-future /[34]76/ [^regex] students (and the professor), with the goal of writing
-their own plugins.
+a Gazebo (GZ) plugin (GZP) is written.  It is meant to be suitable for
+reading by future /[34]76/ [^regex] students (and the professor), with
+the goal of writing their own plugins.
 
 The primary example that will be used by this plugin is that of
 writing a gripper.  For details, see the last section of this read-me

@@ -14,22 +14,22 @@
     <!-- Need a model to which to apply our plugin.  For reference, world
          plugins go under the <world/> tag, and so on. -->
     <model name="box">
-      <pose>0 0 0.05 0 0 0</pose>
+      <pose>0 0 0.25 0 0 0</pose>
       <link name="link">
         <!-- Tell physics engine where box is. -->
         <collision name="collision">
 		  <!-- Normally, one should not nest tags like this, but since
 		       there is only one... -->
-          <geometry><box><size>2 1 0.1</size></box></geometry>
+          <geometry><box><size>2 1 0.5</size></box></geometry>
         </collision>
         <!-- Tell GUI where box is. -->
         <visual name="visual">
-          <geometry><box><size>2 1 0.1</size></box></geometry>
+          <geometry><box><size>2 1 0.5</size></box></geometry>
           <material>
             <!-- Do not really need this tag, but I like colorful objects, so I
                  put it here.  GZ uses Ogre conventions for colors. -->
             <ambient>0 0 1 1</ambient>
-            <diffuse>0 0 0 1</diffuse>
+            <diffuse>0 0 1 1</diffuse>
             <specular>0.1 0.1 0.1 1</specular>
             <emissive>0 0 0 0</emissive>
           </material>
@@ -40,7 +40,7 @@
     </model>
 
 	<model name="Galileo_cushion">
-      <pose>0 0 1.5 0 0 0</pose>
+      <pose>0 0 2.5 0 0 0</pose>
       <link name="link">
         <!-- Tell physics engine where ball is. -->
         <collision name="collision">
@@ -51,7 +51,7 @@
 		  <geometry><sphere><radius>0.1</radius></sphere></geometry>
           <material>
             <ambient>1 0 0 1</ambient>
-            <diffuse>0 0 0 1</diffuse>
+            <diffuse>1 0 0 1</diffuse>
             <specular>0.1 0.1 0.1 1</specular>
             <emissive>0 0 0 0</emissive>
           </material>
@@ -60,7 +60,7 @@
 	</model>
 
 	<model name="Galileo_floor">
-      <pose>0 1 1.5 0 0 0</pose>
+      <pose>0 1 2.5 0 0 0</pose>
       <link name="link">
         <!-- Tell physics engine where ball is. -->
         <collision name="collision">
@@ -71,7 +71,7 @@
 		  <geometry><sphere><radius>0.1</radius></sphere></geometry>
           <material>
             <ambient>0 1 0 1</ambient>
-            <diffuse>0 0 0 1</diffuse>
+            <diffuse>0 1 0 1</diffuse>
             <specular>0.1 0.1 0.1 1</specular>
             <emissive>0 0 0 0</emissive>
           </material>

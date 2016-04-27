@@ -9,24 +9,23 @@ the goal of writing their own plugins.
 
 Regarding the development environment, the Atlas machines already have
 everything that is needed installed.  Compiling GZPs can work
-differently than compiling regular ROS nodes (straight call to `cmake`
-instead of `catkin_make`), although for purposes of this project we
-will compile it in the usual ROS way.  Note that GZPs are libraries
-(`libfoo.so` files), not direct executables.
+differently than compiling regular ROS nodes [^gazebo_build], although
+for purposes of this project we will compile it in the usual ROS way.
+Note that GZPs are libraries (`libfoo.so` files), not direct
+executables.
 
 The primary example that will be used by this plugin is that of
 writing a gripper [^gripper].  All code, XML files, buildscripts,
 etc. are well-commented, to aid understanding.  For details, see the
 last section of this read-me file.  Running the example is simple:
-
-```
-$ roslaunch jas497_476 test.launch
-```
+simply execute the `run.sh` script in your shell of choice (tested in
+bash, zsh, and sh (fish is not installed on the Atlas machines)).
 
 Stylistic note: GZ uses CamelCase for its APIs.  To avoid confusion,
 either mimic this or settle on another style; try not to mix.  More
 generally, this applies to all software engineering, not just writing
-GZP.  Here, examples will use camelCase.
+GZP.  Here, examples will use camelCase, because the author is most
+familiar with (Android) Java.
 
 ---------------------------------------------------------------------
 
@@ -146,10 +145,12 @@ For more information on GUI plugins, start
 
 To specify this for a new model, use
 [URDF](http://wiki.ros.org/urdf/Tutorials/Adding%20Physical%20and%20Collision%20Properties%20to%20a%20URDF%20Model).
+
 To see this from another process, look for ROS messages of type
 `gazebo_msgs/Contacts?State` [^regex].  The interface will be familiar
-to anyone who has used `tf` before.  To manipulate this in a plugin,
-FIXME.
+to anyone who has used `tf` before.
+
+To manipulate this in a plugin, FIXME.
 
 
 
@@ -206,3 +207,14 @@ FIXME.
 [^gripper]: These
     [already exist](https://osrf-distributions.s3.amazonaws.com/gazebo/api/dev/classgazebo_1_1physics_1_1Gripper.html),
     but we need an example.
+
+[^gazebo_build]: Gazebo is cross-platform; that is, it can run on
+	Windows too.  To maintain compatibility, one could use a straight
+	call to `cmake` instead of `catkin_make`, but since we only intend
+	to use it with Ubuntu, we can get away with using the ROS build
+	system.  Maybe WSL [^WSL] will change that?
+	
+[^WSL]: Windows Subsystem for Linux, a feature in Windows 10 Developer
+	Preview (and eventually the full release) that works by
+	translating syscalls, live, between the two systems, allowing one
+	to run Ubuntu programs (e.g., bash) in Windows.  It is not a VM.

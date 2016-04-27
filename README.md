@@ -9,12 +9,12 @@ The primary example that will be used by this plugin is that of
 writing a gripper.  For details, see the last section of this read-me
 file.
 
--------------------------------------------------------------------------------
+---------------------------------------------------------------------
 
 # Writing a Gazebo plugin
 
 The first step is to decide what type of plugin is desired.  As of
-this writing (2016-04-26), there are six types of plugin: World,
+this writing (April 2016), there are six types of plugin: World,
 Model, Sensor, System, Visual, and GUI.  The reference plugin will
 focus on Model plugins, but the concepts generalize.  The reader is
 assumed to be familiar with C++ and using a plain-text editor such as
@@ -23,12 +23,17 @@ workflow is different, and has too much magic.  When learning
 something for the first time, it is better to do it the hard way
 first, then allow automated tools to take over).
 
+## Brief overview of 3D computer simulation
+
+FIXME
+
+
 
 ## References
 
 [Wiki page](http://gazebosim.org/tutorials?tut=plugins_hello_world&cat=write_plugin)
 
--------------------------------------------------------------------------------
+---------------------------------------------------------------------
 
 # Record of discussions on this project
 

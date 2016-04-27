@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>jas497_476</name>
+  <version>0.0.1</version>
+  <description>The 476 package</description>
+  
+  <maintainer email="jas497@case.edu">jas497</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+	<gazebo_ros
+		plugin_path="${prefix}/lib"
+		gazebo_media_path="${prefix}"
+		/>
+  </export>
+</package>

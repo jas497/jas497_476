@@ -8,23 +8,23 @@
 
 #include "main.hpp"
 
-namespace gz     = gazebo;
-namespace gzmpm  = gazebo::ModelPluginMain;
-namespace gzphys = gazebo::physics;
+namespace gz = gazebo;
 
-gzmpm::ModelPluginMain() : ModelPlugin() {
+typedef gazebo::ModelPluginMain gzmpm;
+
+gzmpm::ModelPluginMain() : gz::ModelPlugin() {
 	printf("Model plugin constructor called.\n");
 }
 
-void gzmpm::Load(gzphys::ModelPtr _model, gazebo::sdf::ElementPtr _sdf) {
+void gzmpm::Load(gz::physics::ModelPtr _model, sdf::ElementPtr _sdf) {
 	this->model = _model;
-	// Listen to the update event. This event is broadcast every
+	// Attach listener to the update event. This event is broadcast before every
 	// simulation iteration.
 	this->updateConnection =
-		gazebo::event::Events::ConnectWorldUpdateBegin(
-			boost::bind(&ModelPluginMain::OnUpdate, this, _1) );
+		gz::event::Events::ConnectWorldUpdateBegin(
+			boost::bind(&gzmpm::onUpdate, this, _1) );
 }
 
-void gzmpm::OnUpdate(const common::UpdateInfo& _info) {
+void gzmpm::onUpdate(const gz::common::UpdateInfo& _info) {
 	//do stuff
 }

@@ -26,5 +26,8 @@ void gzmpm::Load(gz::physics::ModelPtr _model, sdf::ElementPtr _sdf) {
 }
 
 void gzmpm::onUpdate(const gz::common::UpdateInfo& _info) {
-	//do stuff
+	//https://osrf-distributions.s3.amazonaws.com/gazebo/api/dev/classgazebo_1_1common_1_1UpdateInfo.html
+	gz::common::Time currentTime = _info->simTime;
+	std::string      worldName   = _info->worldName;
+	
 }

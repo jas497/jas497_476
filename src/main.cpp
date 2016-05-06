@@ -25,7 +25,7 @@ gzmpm::ModelPluginMain() : gz::ModelPlugin() {
 void gzmpm::Load(gz::physics::ModelPtr _model, sdf::ElementPtr _sdf) {
 	this->model = _model;
 	// Attach listener to the update event. This event is broadcast before every
-	// simulation iteration.
+	// simulation iteration, which happens at about a kilohertz.
 	this->updateConnection =
 		gz::event::Events::ConnectWorldUpdateBegin(
 			boost::bind(&gzmpm::onUpdate, this, _1) );
@@ -54,11 +54,14 @@ void gzmpm::onUpdate(const gz::common::UpdateInfo& _info) {
 		}
 	}
 
-	//This fails too.  Always zero Contacts.
+	// Works, but needs a <gripper/> in the URDF file (see foogrip.sdf for
+	// details).  More about grippers in GZ 2.2.3 (unchanged in 5.3.0):
+	// https://bitbucket.org/osrf/gazebo/src/36c46c770764affe94d7829a3fc3a5e2512c4f26/gazebo/physics/Gripper.cc
 	const std::vector<gph::Contact*>& contacts =
 		this->contactManager->GetContacts();
 	unsigned int howManyContacts = contacts.size();
 	if (howManyContacts) {
+		//shows four, which are assumed to be between the gripper plates and the floor
 		printf("This many contacts: %d\n", howManyContacts);
 	}
 }

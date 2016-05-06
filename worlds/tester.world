@@ -14,7 +14,7 @@
     <!-- Need a model to which to apply our plugin.  For reference, world
          plugins go under the <world/> tag, and so on. -->
     <model name="box">
-      <pose>0 0 0.25 0 0 0</pose>
+      <pose>0 1 0.25 0 0 0</pose>
       <link name="link">
         <!-- Tell physics engine where box is. -->
         <collision name="collision">
@@ -40,15 +40,15 @@
     </model>
 
 	<model name="Galileo_cushion">
-      <pose>0 0 2.5 0 0 0</pose>
+      <pose>0 1 2.5 0 0 0</pose>
       <link name="link">
         <!-- Tell physics engine where ball is. -->
         <collision name="collision">
-          <geometry><sphere><radius>0.1</radius></sphere></geometry>
+          <geometry><sphere><radius>0.2</radius></sphere></geometry>
         </collision>
         <!-- Tell GUI where box is. -->
         <visual name="visual">
-		  <geometry><sphere><radius>0.1</radius></sphere></geometry>
+		  <geometry><sphere><radius>0.2</radius></sphere></geometry>
           <material>
             <ambient>1 0 0 1</ambient>
             <diffuse>1 0 0 1</diffuse>
@@ -60,15 +60,15 @@
 	</model>
 
 	<model name="Galileo_floor">
-      <pose>0 1 2.5 0 0 0</pose>
+      <pose>0 0 2.5 0 0 0</pose>
       <link name="link">
         <!-- Tell physics engine where ball is. -->
         <collision name="collision">
-          <geometry><sphere><radius>0.1</radius></sphere></geometry>
+          <geometry><sphere><radius>0.2</radius></sphere></geometry>
         </collision>
         <!-- Tell GUI where box is. -->
         <visual name="visual">
-		  <geometry><sphere><radius>0.1</radius></sphere></geometry>
+		  <geometry><sphere><radius>0.2</radius></sphere></geometry>
           <material>
             <ambient>0 1 0 1</ambient>
             <diffuse>0 1 0 1</diffuse>
@@ -78,6 +78,12 @@
         </visual>
       </link>	  
 	</model>
+
+	<include>
+	  <!-- Requires a few lines in jas497_476/package.xml, in the export tag. -->
+	  <uri>model://jas497_476/models/foogrip</uri>
+      <pose>-0.3 0 0.15 0 0 0</pose>
+    </include>
 
   </world>
 </sdf>

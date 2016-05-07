@@ -256,11 +256,10 @@
     </joint>
 
 	<gripper name="gripper">
-	  <!-- The gripper tag only uses parallel grips. -->
 	  <!-- http://answers.ros.org/question/201625/turtlebot-arm-on-gazebo-lets-fall-all-grasped-objects/ -->
 	  <!-- http://answers.gazebosim.org/question/4324/gripper-tag-gazebophysicsgripper-doesnt-create-the-fixed-joint-between-the-gripper-and-the-object-within-it/ -->
 	  <grasp_check>
-		<attach_steps>5</attach_steps>
+		<attach_steps>1</attach_steps>
 		<detach_steps>10</detach_steps>
 	  </grasp_check>
 	  <!-- These surfaces move to press against the object. -->

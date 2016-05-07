@@ -34,6 +34,8 @@ void gzmpm::Load(gz::physics::ModelPtr _model, sdf::ElementPtr _sdf) {
 		_model->GetWorld()->GetPhysicsEngine()->GetContactManager();
 }
 
+int dec = 0;
+
 void gzmpm::onUpdate(const gz::common::UpdateInfo& _info) {
 	//WARNING: This function is called very, very often! (~1000Hz)
 	// (Try not to flood the screen with too many print calls.)
@@ -60,8 +62,9 @@ void gzmpm::onUpdate(const gz::common::UpdateInfo& _info) {
 	const std::vector<gph::Contact*>& contacts =
 		this->contactManager->GetContacts();
 	unsigned int howManyContacts = contacts.size();
-	if (howManyContacts) {
+	if (howManyContacts && dec == 0) {
 		//shows four, which are assumed to be between the gripper plates and the floor
 		printf("This many contacts: %d\n", howManyContacts);
 	}
+	dec = (dec+1)%10;
 }

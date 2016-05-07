@@ -29,6 +29,14 @@ familiar with (Android) Java.
 
 ---------------------------------------------------------------------
 
+# Using a recent patch for Baxter
+
+
+To open the simulator, go
+[here](http://sdk.rethinkrobotics.com/wiki/Simulator_Installation).
+
+---------------------------------------------------------------------
+
 # Writing a Gazebo plugin
 
 A GZP is a C++ library file that the main GZ server loads and

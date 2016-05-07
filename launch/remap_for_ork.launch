@@ -1,0 +1,18 @@
+<launch>
+  <remap
+	  to="/camera/depth_registered/camera_info"
+	  from="/kinect/depth/camera_info"
+	  />
+  <remap
+	  to="/camera/depth_registered/image_raw"
+	  from="/kinect/depth/image_raw"
+	  />
+  <remap
+	  to="/camera/rgb/camera_info"
+	  from="/kinect/rgb/camera_info"
+	  />
+  <remap
+	  to="/camera/rgb/image_color"
+	  from="/kinect/rgb/image_raw"
+	  />
+</launch>
